@@ -1,0 +1,3 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(){int i=5;if(i<0)return 0;char f[20],c[200];char*s="#include <stdio.h>%c#include <stdlib.h>%cint main(){int i=%d;if(i<0)return 0;char f[20],c[200];char*s=%c%s%c;sprintf(f,%cSully_%%d.c%c,i);FILE*fp=fopen(f,%cw%c);fprintf(fp,s,10,10,i-1,34,s,34,34,34,34,34,34,34,10);fclose(fp);if(i>0){sprintf(c,%cgcc Sully_%%d.c -o Sully_%%d && ./Sully_%%d%c,i,i,i);system(c);}return 0;}%c";sprintf(f,"Sully_%d.c",i);FILE*fp=fopen(f,"w");fprintf(fp,s,10,10,i-1,34,s,34,34,34,34,34,34,34,10);fclose(fp);if(i>0){sprintf(c,"gcc Sully_%d.c -o Sully_%d && ./Sully_%d",i,i,i);system(c);}return 0;}
